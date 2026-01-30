@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../api/axios";
 import ProductCard from "../components/ProductCard";
 import SearchBar from "../components/SearchBar";
 
@@ -7,7 +7,7 @@ export default function Home() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/products")
+    api.get("/products")
       .then(res => setProducts(res.data));
   }, []);
 
